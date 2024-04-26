@@ -11,6 +11,6 @@ rule conditional_jump_same_target {
 
 
     condition:
-    	(elf.type or pe.is_pe) and (@cndJmp[8-11] - @cndJmp[2-5] == 6)
+    	(elf.type or pe.is_pe) and (int32(@cndJmp[8-11]) - int32(@cndJmp[2-5]) == 6)
 
 } 
